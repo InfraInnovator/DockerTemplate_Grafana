@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  grafana:
+    image: grafana/grafana:8.2.0-beta2-ubuntu
+    ports:
+      - 3001:3000  # Maps port 3001 on the host to 3000 inside the container
+    restart: unless-stopped
+    volumes:
+      - grafana-storage:/var/lib/grafana  # Persistent storage for Grafana data
+
+volumes:
+  grafana-storage:
+    # This defines a named volume. You can specify driver options here if needed.
